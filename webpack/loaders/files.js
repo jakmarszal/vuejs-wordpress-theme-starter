@@ -3,7 +3,7 @@ module.exports = {
   test: /\.(png|svg|jpg|gif)$/,
   use: [
     {
-      loader: 'file-loader',
+      loader: 'url-loader',
       options: {
         name: 'img/[name].[ext]',
         publicPath: `/wp-content/themes/${themeName}/dist`

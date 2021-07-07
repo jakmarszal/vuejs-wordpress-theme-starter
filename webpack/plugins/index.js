@@ -1,15 +1,17 @@
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { VueLoaderPlugin } = require('vue-loader');
+
+
 
 plugins = [
   require('./stylelint'),
+  new VueLoaderPlugin(),
   new webpack.ProvidePlugin({
     throttle: 'lodash.throttle',
   }),
   new webpack.LoaderOptionsPlugin({ minimize: true }),
-  new ExtractTextPlugin('styles.css'),
-  new VueLoaderPlugin(),
+  new MiniCssExtractPlugin({ filename: "[name].css" }),
 ];
 
 if (process.env.NODE_ENV === 'development') {

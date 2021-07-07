@@ -23,7 +23,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.css', '.vue'],
     alias: {
-      vue$: 'vue/dist/vue.esm.js',
+      vue: "@vue/runtime-dom",
     },
   },
   plugins,
@@ -33,22 +33,22 @@ module.exports = {
     minimizer: isDev
       ? []
       : [
-          new UglifyJsPlugin({
-            // include: [path.resolve(__dirname, '../src')],
-            cache: true,
-            parallel: true,
-            extractComments: true,
-            uglifyOptions: {
-              warnings: false,
-              parse: {},
-              compress: {},
-              mangle: true,
-              output: null,
-              ie8: false,
-              keep_fnames: false,
-              toplevel: false,
-            },
-          }),
-        ],
+        new UglifyJsPlugin({
+          // include: [path.resolve(__dirname, '../src')],
+          cache: true,
+          parallel: true,
+          extractComments: true,
+          uglifyOptions: {
+            warnings: false,
+            parse: {},
+            compress: {},
+            mangle: true,
+            output: null,
+            ie8: false,
+            keep_fnames: false,
+            toplevel: false,
+          },
+        }),
+      ],
   },
 };

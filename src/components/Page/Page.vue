@@ -9,14 +9,14 @@
 </template>
 
 <script>
-import Loader from '../partials/Loader.vue';
-import { mapGetters } from 'vuex';
+import Loader from "../partials/Loader.vue";
+import { mapGetters } from "vuex";
 
 export default {
   computed: {
     ...mapGetters({
-      page: 'page',
-      allPagesLoaded: 'allPagesLoaded',
+      page: "page",
+      allPagesLoaded: "allPagesLoaded",
     }),
 
     pageContent() {
@@ -31,9 +31,9 @@ export default {
 </script>
 
 <style type="postcss" scoped>
-.page-content {
-  & >>> p {
+/* .page-content {
+  & > p {
     margin-bottom: 1rem;
   }
-}
+} */
 </style>

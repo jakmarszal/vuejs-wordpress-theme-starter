@@ -1,14 +1,13 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router'
 
 // Components
 import Home from '../components/Home.vue';
 import Post from '../components/Post/Post.vue';
 import Page from '../components/Page/Page.vue';
 
-Vue.use(Router);
 
-const router = new Router({
+const router = createRouter({
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
@@ -27,8 +26,6 @@ const router = new Router({
       component: Page,
     },
   ],
-  mode: 'history',
-  base: '',
 
   // Prevents window from scrolling back to top
   // when navigating between components/views
@@ -36,7 +33,7 @@ const router = new Router({
     if (savedPosition) {
       return savedPosition;
     } else {
-      return { x: 0, y: 0 };
+      return { top: 0, left: 0 };
     }
   },
 });

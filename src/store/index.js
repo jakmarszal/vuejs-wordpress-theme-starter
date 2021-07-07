@@ -1,6 +1,3 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import createPersist from 'vuex-localstorage'
 import * as actions from './actions'
 import * as getters from './getters'
 import hub from './modules/hub'
@@ -8,18 +5,11 @@ import user from './modules/user'
 import post from './modules/post'
 import page from './modules/page'
 import categories from './modules/categories'
-
-Vue.use(Vuex)
+import { createStore } from 'vuex'
 
 const debug = process.env.NODE_ENV !== 'production'
 
-let localStorage = createPersist({
-    namespace: 'YOUR_APP_NAMESPACE',
-    initialState: {},
-    expires: 1.21e+9 // Two Weeks
-})
-
-export default new Vuex.Store({
+const store = createStore({
   actions,
   getters,
   modules: {
@@ -29,6 +19,7 @@ export default new Vuex.Store({
     page,
     categories
   },
-  strict: debug,
-  plugins: [localStorage]
+  strict: debug
 })
+
+export default store;
