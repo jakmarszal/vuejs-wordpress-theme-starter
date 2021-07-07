@@ -6,7 +6,7 @@
     <h1 class="mt-6">Welcome!</h1>
     <p>
       You'll probably want to remove all  of this stuff, but hey it at least it
-      works!
+      works!!
     </p>
     <p class="lol">
       If you'd like to edit THE contents of this page take a look at
